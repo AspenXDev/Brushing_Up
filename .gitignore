@@ -1,0 +1,14 @@
+# Ignore "Git" folder
+Git/
+
+# Ignore "Microsoft VS Code" folder
+Microsoft VS Code/
+
+# Ignore node_modules (for Node.js projects)
+node_modules/
+
+# Ignore log files
+*.log
+
+*.log        # Ignore all .log files
+*.tmp        # Ignore all .tmp files
