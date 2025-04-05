@@ -1,7 +1,159 @@
 /* styles.css */
-.spacer {
-  height: 2em;
+/* Reset & Variables */
+:root {
+  --bg: #f0f0f3ae;
+  --glass: rgba(57, 53, 172, 0.2);
+  --blur: blur(12px);
+  --neu-light: #ffffff;
+  --neu-dark: #d1d9e6;
+  --gradient-bg: linear-gradient(120deg, #5f80fc, #f1a7f1);
+  --radius: 1rem;
+  --transition: all 0.3s ease;
+  --shadow-inset: inset 8px 8px 16px var(--neu-dark),
+    inset -8px -8px 16px var(--neu-light);
+  --shadow-outset: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+  --text: #333333; /* Dark gray text for better readability? */
 }
-.heading1 {
-  background-color: powderblue;
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: var(--gradient-bg); /* Applied gradient */
+  color: var(--text); /* Defined text color */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  background: linear-gradient(to right, #2c365a, #0606b1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: 10px;
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section {
+  margin-bottom: 4rem;
+}
+
+.glass {
+  background: var(--glass);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-outset);
+  transition: var(--transition);
+}
+
+.card-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1 1 200px;
+  background: var(--neu-light);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-outset);
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-inset);
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--neu-light);
+  box-shadow: var(--shadow-inset);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  background: var(--neu-light);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-outset);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+button:hover {
+  box-shadow: var(--shadow-inset);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: conver;
+}
+
+.nav-button {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+  font-size: 2rem;
+  background: var(--neu-light);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-outset);
+  cursor: pointer;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: clamp(150px, 30vw, 250px); /* min150px; pref30vw, max250px */
+  background-color: rgba(255, 255, 255, 0.11); /* semi-transparent white */
+  backdrop-filter: blur(10px); /* blur background behind */
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+  padding-top: 5rem;
+  display: none;
+  flex-direction: column;
+  align-items: center; /* Horizontal center */
+  justify-content: flex-start; /* Start from top */
+  padding-top: 5rem; /* Add spacing from top */
+  gap: 1.5rem;
+  z-index: 999;
+}
+
+/* Combinator Selector Chain */
+#nav-toggle:checked + .nav-button + .sidebar {
+  /* Combinator Selector Chain
+  WHEN hidden "nav-toggle" checkbox .nav-button is clicked
+  Select sidebar*/
+  display: flex;
 }

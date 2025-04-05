@@ -8,7 +8,5 @@ Microsoft VS Code/
 node_modules/
 
 # Ignore log files
-*.log
-
 *.log        # Ignore all .log files
 *.tmp        # Ignore all .tmp files

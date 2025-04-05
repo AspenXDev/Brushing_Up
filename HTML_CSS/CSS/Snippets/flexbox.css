@@ -1,0 +1,33 @@
+body {
+  background-color: #faf0e6;
+}
+.flex-container {
+  padding: min(
+    3em,
+    5%
+  ); /* responsive padding for different devices; desktop 3em; mobile 5% */
+  width: 100%;
+  min-width: 150px;
+  min-height: 150px;
+  max-width: 800px;
+  max-height: 800px;
+
+  border: 5px solid black;
+  display: flex; /* overwrite body element default inline display */
+  justify-content: space-evenly; /* main axis: position elements at center (default is flex-start) */
+  align-items: center; /* cross axis: position elements at center (default is flex-start) */
+}
+
+.box {
+  padding: min(
+    2em,
+    2%
+  ); /* responsive padding for different devices; desktop 2em; mobile 2%; whichever is smaller */
+  max-width: 100px;
+  max-height: 100px;
+  background-color: aliceblue;
+  border: 2px solid rgba(0, 0, 0, 0.397);
+  /* responsive font-size for different devices; clamped between 1rem and 1.5rem; 2vw preferred*/
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  white-space: pre-wrap;
+}
